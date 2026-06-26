@@ -51,10 +51,10 @@ export default function CopyCommand({ command, label }: CopyCommandProps) {
     <div
       className="
         flex items-center justify-between gap-4
-        bg-surface border border-border rounded-[var(--radius-md)]
+        bg-surface border border-border rounded-md
         px-5 py-4
         group
-        transition-colors duration-[var(--duration-base)]
+        transition-colors duration-(--duration-base)
         hover:border-border-hover
       "
     >
@@ -62,7 +62,7 @@ export default function CopyCommand({ command, label }: CopyCommandProps) {
       <div className="flex items-center gap-3 min-w-0">
         {/* Prompt glyph */}
         <span
-          className="font-mono text-sm text-accent flex-shrink-0 select-none"
+          className="font-mono text-sm text-accent shrink-0 select-none"
           aria-hidden="true"
         >
           $
@@ -82,8 +82,8 @@ export default function CopyCommand({ command, label }: CopyCommandProps) {
         onClick={handleCopy}
         aria-label={isCopied ? "Copied!" : `Copy command: ${label}`}
         className={cn(
-          "flex-shrink-0 p-1.5 rounded-[var(--radius-sm)]",
-          "transition-colors duration-[var(--duration-fast)]",
+          "shrink-0 p-1.5 rounded-sm",
+          "transition-colors duration-(--duration-fast)",
           "focus-visible:outline-accent",
           isCopied
             ? "text-accent"

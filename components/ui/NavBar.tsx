@@ -45,7 +45,7 @@ export default function NavBar() {
                   className="
                     nav-link flex items-center gap-1.5 px-3 py-2 rounded-lg
                     font-body text-sm font-medium text-ink-muted 
-                    transition-all duration-200 hover:text-ink hover:bg-surface-2/50
+                    transition-all duration-200 hover:text-ink
                     outline-none focus-visible:ring-2 focus-visible:ring-accent
                   "
                   {...(link.external
@@ -61,7 +61,7 @@ export default function NavBar() {
                     {link.external && link.logo && (
                       <span
                         aria-hidden="true"
-                        className="opacity-70 group-hover:opacity-100 transition-opacity"
+                        className=""
                       >
                         <link.logo className="w-3.5 h-3.5" />
                       </span>

@@ -32,26 +32,15 @@ export default function HeroFlow() {
   }, [streamIndex]);
 
   return (
-    <div className="relative w-full max-w-[28rem] mx-auto select-none py-8">
+    <div className="relative w-full max-w-md mx-auto select-none py-8">
       {/* ── BACKGROUND: Subtle Isometric Grid ── */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden [perspective:1000px]">
-        <div
-          className="absolute w-[200%] h-[200%] opacity-[0.25]"
-          style={{
-            backgroundImage: `linear-gradient(to right, var(--color-border) 1px, transparent 1px), linear-gradient(to bottom, var(--color-border) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-            transform: "rotateX(60deg) rotateZ(-45deg) translateY(-10%)",
-            maskImage:
-              "radial-gradient(circle at center, black 10%, transparent 60%)",
-            WebkitMaskImage:
-              "radial-gradient(circle at center, black 10%, transparent 60%)",
-          }}
-        />
+      <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden perspective-[1000px]">
+        <div className="absolute w-[200%] h-[200%] opacity-[0.25] bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)]  bg-size-[40px_40px] transform-[rotateX(60deg)_rotateZ(-45deg)_translateY(-10%)] mask-[radial-gradient(circle_at_center,black_10%,transparent_60%)][-webkit-mask-image:radial-gradient(circle_at_center,black_10%,transparent_60%)]" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
         {/* ── TOP CARD: The Input & Processing ── */}
-        <div className="w-full h-[14.5rem] flex flex-col justify-between bg-surface/90 backdrop-blur-md border border-border/80 rounded-xl p-5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.5)]">
+        <div className="w-full h-58 flex flex-col justify-between bg-surface/90 backdrop-blur-md border border-border/80 rounded-xl p-5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.5)]">
           <div>
             {/* Header Row */}
             <div className="flex items-center justify-between mb-4">
@@ -91,7 +80,7 @@ export default function HeroFlow() {
 
           {/* AI Processing Status Bar (Strict Height Lock: h-[4.5rem]) */}
           <div
-            className={`relative w-full h-[4.5rem] flex items-center gap-3 px-4 rounded-lg border transition-colors duration-500 ${
+            className={`relative w-full h-18 flex items-center gap-3 px-4 rounded-lg border transition-colors duration-500 ${
               engineState === "analyzing"
                 ? "bg-accent/5 border-accent/20"
                 : "bg-surface-2 border-border/50"
@@ -149,13 +138,13 @@ export default function HeroFlow() {
               animate={{ strokeDashoffset: -24 }}
               transition={{ duration: 1, ease: "linear", repeat: Infinity }}
               opacity={engineState === "patching" ? 1 : 0.15}
-              style={{ transition: "opacity 0.5s ease" }}
+              className="transition-opacity duration-500"
             />
           </svg>
         </div>
 
         {/* ── BOTTOM CARD: The Result (Strict Height Lock: h-[10.5rem]) ── */}
-        <div className="w-[88%] self-end h-[10.5rem] flex flex-col bg-surface/90 backdrop-blur-md border border-border/80 rounded-xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] overflow-hidden">
+        <div className="w-[88%] self-end h-42 flex flex-col bg-surface/90 backdrop-blur-md border border-border/80 rounded-xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] overflow-hidden">
           {/* Header */}
           <div className="h-[2.5rem] shrink-0 flex items-center gap-2 bg-surface-2 border-b border-border/60 px-4">
             <SiMarkdown className="text-ink-muted text-sm shrink-0" />
@@ -182,7 +171,7 @@ export default function HeroFlow() {
               <div className="h-1.5 w-1/2 bg-surface-2 rounded-sm" />
 
               {/* The Live Patch Line (Strict Height Lock: h-[1.75rem]) */}
-              <div className="relative h-[1.75rem] w-full rounded flex items-center overflow-hidden">
+              <div className="relative h-7 w-full rounded flex items-center overflow-hidden">
                 <div
                   className={`absolute inset-0 transition-all duration-700 rounded-r ${
                     engineState === "patching"

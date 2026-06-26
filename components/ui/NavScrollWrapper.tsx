@@ -41,7 +41,7 @@ export default function NavScrollWrapper({ children }: NavScrollWrapperProps) {
         "transition-colors duration-500 ease-out", // Only CSS transition the colors/blur
         isScrolled
           ? "max-w-4xl bg-surface/75 backdrop-blur-xl border border-border/60 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] rounded-[1.25rem]"
-          : "max-w-[1280px] bg-transparent border-transparent shadow-none rounded-none",
+          : "max-w-7xl bg-transparent border-transparent shadow-none rounded-none",
       )}
     >
       {children}
