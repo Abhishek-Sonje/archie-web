@@ -27,14 +27,14 @@ export default function NavScrollWrapper({ children }: NavScrollWrapperProps) {
       layout
       transition={{
         type: "spring",
-        stiffness: 300,
+        stiffness: 200,
         damping: 30,
         mass: 0.8,
       }}
       // We use framer-motion's GPU-accelerated 'y' axis instead of CSS margin (mt-4)
       // to prevent the browser from recalculating document layout on scroll.
       animate={{
-        y: isScrolled ? 16 : 0,
+        y: isScrolled ? 10 : 0,
       }}
       className={cn(
         "mx-auto pointer-events-auto overflow-hidden",

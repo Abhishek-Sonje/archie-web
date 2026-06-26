@@ -7,13 +7,13 @@
      - Transitions into a floating, frosted pill on scroll
 ───────────────────────────────────────────────────────────────── */
 
-import { NAV } from "@/lib/constants";
+import { NAV } from "@/content/landing";
 import NavScrollWrapper from "./NavScrollWrapper";
-import { IoTerminalOutline } from "react-icons/io5";
+import Image from "next/image";
 
 export default function NavBar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-[var(--z-sticky)] px-4 py-4 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-(--z-sticky) px-4 py-4 pointer-events-none">
       {/* pointer-events-none on header, auto on the nav inside so clicks pass 
         through the invisible full-width header container. 
       */}
@@ -28,8 +28,8 @@ export default function NavBar() {
             className="flex items-center gap-2 group outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
             aria-label="Archie home"
           >
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-surface-2 border border-border group-hover:border-accent/50 transition-colors">
-              <IoTerminalOutline className="text-accent text-sm" />
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-ink border border-border group-hover:border-accent/50 transition-colors">
+              <Image src="/logo.png" alt="Archie logo" width={60} height={60} />
             </div>
             <span className="font-display font-medium text-lg text-ink tracking-tight select-none">
               {NAV.wordmark}

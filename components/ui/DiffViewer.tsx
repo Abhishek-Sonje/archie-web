@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { DIFF_LINES, DIFF_META } from "@/lib/constants";
+import { DIFF_LINES, DIFF_META } from "@/content/landing";
 import type { DiffLine } from "@/types";
 import { SiMarkdown } from "react-icons/si";
 
@@ -9,7 +9,7 @@ export default function DiffViewer() {
       role="region"
       aria-label="Example ARCHITECTURE.md diff — Archie's output"
       className="
-        relative w-full h-full min-h-[26rem] flex flex-col
+        relative w-full h-full min-h-104 flex flex-col
         border border-border/80 rounded-xl
         bg-surface/80 backdrop-blur-xl shadow-2xl z-10
       "
@@ -23,7 +23,7 @@ export default function DiffViewer() {
             <div className="w-2.5 h-2.5 rounded-full bg-border-hover" />
             <div className="w-2.5 h-2.5 rounded-full bg-border-hover" />
           </div>
-          <div className="h-4 w-[1px] bg-border mx-1" />
+          <div className="h-4 w-px bg-border mx-1" />
           <div className="flex items-center gap-2 text-ink">
             <SiMarkdown className="text-accent text-[0.875rem]" />
             <span className="font-mono text-[0.75rem] font-medium tracking-tight">
@@ -46,15 +46,7 @@ export default function DiffViewer() {
 
       {/* ── Diff Body ── */}
       {/* Mask image creates the fade-out effect at the top and bottom of the scroll */}
-      <div
-        className="flex-1 overflow-hidden relative bg-[#0a0a0a]"
-        style={{
-          maskImage:
-            "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
-        }}
-      >
+      <div className="diff-mask flex-1 overflow-hidden relative bg-[#0a0a0a]">
         <div className="diff-scroll-track absolute w-full py-8">
           <pre
             className="font-mono text-[0.813rem] leading-[1.6] m-0 p-0 bg-transparent overflow-x-auto"
@@ -79,17 +71,17 @@ function DiffLineRow({ line }: { line: DiffLine }) {
   return (
     <div
       className={cn(
-        "flex items-baseline gap-0 px-4 py-[2px] transition-colors duration-200 hover:bg-white/[0.02]",
-        isAdd && "bg-diff-add-bg/40 border-l-[2px] border-diff-add-bar",
-        isRemove && "bg-diff-rem-bg/40 border-l-[2px] border-diff-rem-bar",
+        "flex items-baseline gap-0 px-4 py-0.5 transition-colors duration-200 hover:bg-white/2",
+        isAdd && "bg-diff-add-bg/40 border-l-2 border-diff-add-bar",
+        isRemove && "bg-diff-rem-bg/40 border-l-2 border-diff-rem-bar",
         isHeader && "mt-4 mb-1",
-        !isAdd && !isRemove && "border-l-[2px] border-transparent",
+        !isAdd && !isRemove && "border-l-2 border-transparent",
       )}
     >
       {/* Glyph column */}
       <span
         className={cn(
-          "w-6 flex-shrink-0 select-none text-[0.75rem] text-center",
+          "w-6 shrink-0 select-none text-[0.75rem] text-center",
           isAdd && "text-diff-add-fg",
           isRemove && "text-diff-rem-fg",
           !isAdd && !isRemove && "text-ink-subtle opacity-30",

@@ -1,6 +1,15 @@
 import DiffViewer from "@/components/ui/DiffViewer";
 import ProofSectionReveal from "@/components/ui/ProofSectionReveal";
-import { SiGooglegemini, SiMarkdown } from "react-icons/si";
+import {
+  PROOF_HEADING,
+  PROOF_HISTORY_NEW,
+  PROOF_HISTORY_PREVIOUS,
+  PROOF_HISTORY_TITLE,
+  PROOF_INTENT_BODY,
+  PROOF_INTENT_TITLE,
+  PROOF_SUBHEADING,
+} from "@/content/landing";
+import { SiGooglegemini } from "react-icons/si";
 import { VscHistory } from "react-icons/vsc";
 
 export default function ProofSection() {
@@ -15,11 +24,10 @@ export default function ProofSection() {
           id="proof-heading"
           className="font-display text-3xl md:text-4xl font-semibold text-ink tracking-tight mb-4"
         >
-          Surgical precision. Zero filler.
+          {PROOF_HEADING}
         </h2>
         <p className="font-body text-lg text-ink-muted leading-relaxed">
-          Six structured sections. Every update is exact — Archie only rewrites
-          the architectural decisions that actually changed in your commit.
+          {PROOF_SUBHEADING}
         </p>
       </div>
 
@@ -27,7 +35,7 @@ export default function ProofSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto">
           {/* ── Main Diff Window (Spans 8 columns) ── */}
           <div className="lg:col-span-8 proof-item relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-border-hover/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute -inset-0.5 bg-linear-to-br from-border-hover/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <DiffViewer />
           </div>
 
@@ -41,13 +49,11 @@ export default function ProofSection() {
               <div className="flex items-center gap-2 mb-4">
                 <SiGooglegemini className="text-accent text-sm" />
                 <span className="font-mono text-[0.688rem] font-medium text-ink tracking-wide uppercase">
-                  Intent Analysis
+                  {PROOF_INTENT_TITLE}
                 </span>
               </div>
               <p className="font-body text-sm text-ink-muted leading-relaxed mb-4">
-                Detected separation of concern. The authentication module was
-                decoupled from the core API gateway into a standalone
-                microservice.
+                {PROOF_INTENT_BODY}
               </p>
               <div className="mt-auto pt-4 border-t border-border/50 flex justify-between items-center">
                 <span className="font-mono text-[0.625rem] text-ink-subtle">
@@ -64,7 +70,7 @@ export default function ProofSection() {
               <div className="flex items-center gap-2 mb-4">
                 <VscHistory className="text-ink-muted text-sm" />
                 <span className="font-mono text-[0.688rem] font-medium text-ink tracking-wide uppercase">
-                  Historical Context
+                  {PROOF_HISTORY_TITLE}
                 </span>
               </div>
               <div className="space-y-3">
@@ -73,7 +79,7 @@ export default function ProofSection() {
                     Previous State (HEAD~1)
                   </span>
                   <div className="w-full bg-surface border border-border rounded px-3 py-2 font-mono text-xs text-ink-muted truncate">
-                    gateway.ts handled JWT
+                    {PROOF_HISTORY_PREVIOUS}
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
@@ -81,7 +87,7 @@ export default function ProofSection() {
                     New State (HEAD)
                   </span>
                   <div className="w-full bg-diff-add-bg/20 border border-diff-add-bar/50 rounded px-3 py-2 font-mono text-xs text-diff-add-fg truncate">
-                    auth-service/ initiated
+                    {PROOF_HISTORY_NEW}
                   </div>
                 </div>
               </div>

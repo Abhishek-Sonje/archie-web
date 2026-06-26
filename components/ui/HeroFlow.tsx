@@ -4,28 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiGooglegemini, SiMarkdown } from "react-icons/si";
 import { VscGitCommit } from "react-icons/vsc";
-
-interface PipelineData {
-  id: string;
-  commitMsg: string;
-  fileCount: number;
-  patchLine: string;
-}
-
-const STREAM: PipelineData[] = [
-  {
-    id: "p1",
-    commitMsg: "feat: add billing module",
-    fileCount: 7,
-    patchLine: "+ Billing module integrated into core API gateway.",
-  },
-  {
-    id: "p2",
-    commitMsg: "refactor: split auth service",
-    fileCount: 5,
-    patchLine: "+ Auth logic moved to standalone microservice.",
-  },
-];
+import { HERO_FLOW_STATES, HERO_FLOW_STREAM } from "@/content/landing";
 
 const CYCLE_MS = 8000;
 
@@ -35,14 +14,14 @@ export default function HeroFlow() {
     "commit" | "analyzing" | "patching"
   >("commit");
 
-  const activeData = STREAM[streamIndex];
+  const activeData = HERO_FLOW_STREAM[streamIndex];
 
   useEffect(() => {
     const toAnalyzing = setTimeout(() => setEngineState("analyzing"), 1500);
     const toPatching = setTimeout(() => setEngineState("patching"), 4500);
     const recycle = setTimeout(() => {
       setEngineState("commit");
-      setStreamIndex((prev) => (prev + 1) % STREAM.length);
+      setStreamIndex((prev) => (prev + 1) % HERO_FLOW_STREAM.length);
     }, CYCLE_MS);
 
     return () => {
@@ -131,14 +110,12 @@ export default function HeroFlow() {
 
             <div className="flex flex-col justify-center h-full w-full overflow-hidden">
               <span className="font-body text-sm font-medium text-ink transition-colors truncate">
-                {engineState === "commit" && "Standing by..."}
-                {engineState === "analyzing" && "Gemini is analyzing intent"}
-                {engineState === "patching" && "Analysis complete"}
+                {HERO_FLOW_STATES[engineState].title}
               </span>
               <span className="font-mono text-[0.688rem] text-ink-subtle transition-opacity duration-300 truncate">
                 {engineState === "analyzing"
                   ? `Scanning ${activeData.fileCount} changed files`
-                  : "Post-commit hook ready"}
+                  : HERO_FLOW_STATES[engineState].subtitle}
               </span>
             </div>
           </div>

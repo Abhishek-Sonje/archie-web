@@ -6,7 +6,11 @@ import {
   INSTALL_COMMANDS,
   GEMINI_API_LINK,
   GEMINI_POLICY_LINK,
-} from "@/lib/constants";
+  INSTALL_BADGE,
+  INSTALL_HEADING,
+  INSTALL_INTRO,
+  INSTALL_TERMINAL_PATH,
+} from "@/content/landing";
 import { IoTerminalOutline } from "react-icons/io5";
 import { SiGooglecloud } from "react-icons/si";
 
@@ -18,20 +22,10 @@ export default function InstallSection() {
       className="container-page section-padding relative overflow-hidden"
     >
       {/* Minimal Architectural Grid Background (Fades out via mask) */}
-      <div
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(to right, var(--color-border) 1px, transparent 1px), linear-gradient(to bottom, var(--color-border) 1px, transparent 1px)`,
-          backgroundSize: "48px 48px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 0%, transparent 70%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 0%, transparent 70%)",
-        }}
-      />
+      <div className="install-grid absolute inset-0 z-0 opacity-20 pointer-events-none" />
 
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-accent/5 rounded-full blur-[100px] pointer-events-none z-0" />
 
       <InstallSectionReveal>
         <div className="relative z-10 max-w-6xl mx-auto">
@@ -41,7 +35,7 @@ export default function InstallSection() {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-surface/50 border border-border/60 w-max mb-8 backdrop-blur-md">
                 <IoTerminalOutline className="text-accent text-[0.75rem]" />
                 <span className="font-mono text-[0.625rem] text-ink-subtle uppercase tracking-widest font-medium">
-                  Initialization
+                  {INSTALL_BADGE}
                 </span>
               </div>
 
@@ -49,15 +43,13 @@ export default function InstallSection() {
                 id="install-heading"
                 className="font-display text-4xl md:text-5xl font-medium text-ink tracking-tight leading-[1.05] text-wrap-balance mb-6"
               >
-                Three commands.
+                {INSTALL_HEADING[0]}
                 <br className="hidden md:block" />
-                <span className="text-ink-subtle">Zero config.</span>
+                <span className="text-ink-subtle">{INSTALL_HEADING[1]}</span>
               </h2>
 
-              <p className="font-body text-lg text-ink-muted mb-12 max-w-[420px] leading-relaxed">
-                Get up and running in under a minute. Install globally,
-                initialize your repo, and link your API key. Archie handles the
-                documentation continuously.
+              <p className="font-body text-lg text-ink-muted mb-12 max-w-105 leading-relaxed">
+                {INSTALL_INTRO}
               </p>
 
               {/* API Disclosures */}
@@ -69,8 +61,8 @@ export default function InstallSection() {
                       Gemini AI Integration
                     </span>
                   </div>
-                  <p className="font-body text-sm text-ink-muted leading-relaxed max-w-[380px]">
-                    Your code diffs are routed to Google's Gemini API for
+                  <p className="font-body text-sm text-ink-muted leading-relaxed max-w-95">
+                    Your code diffs are routed to Google&apos;s Gemini API for
                     analysis.{" "}
                     <a
                       href={GEMINI_API_LINK}
@@ -95,13 +87,13 @@ export default function InstallSection() {
             </div>
 
             {/* ── Right Column: Flat, Practical Terminal ── */}
-            <div className="lg:col-span-7 relative group w-full max-w-[560px] mx-auto lg:ml-auto">
+            <div className="lg:col-span-7 relative group w-full max-w-140 mx-auto lg:ml-auto">
               {/* Outer Glow on hover */}
-              <div className="absolute -inset-1 bg-gradient-to-br from-border-hover/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute -inset-1 bg-linear-to-br from-border-hover/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="relative bg-[#0A0C0B] border border-border/80 rounded-xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] overflow-hidden transition-transform duration-500 ease-out group-hover:-translate-y-1">
                 {/* Internal top glow */}
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border-hover to-transparent opacity-50" />
+                <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-border-hover to-transparent opacity-50" />
 
                 {/* Terminal Header */}
                 <div className="flex items-center px-5 py-3.5 bg-surface-2/40 border-b border-border/60">
@@ -113,11 +105,11 @@ export default function InstallSection() {
                   <div className="mx-auto flex items-center gap-2 opacity-60">
                     <IoTerminalOutline className="text-[10px]" />
                     <span className="font-mono text-[0.625rem] tracking-widest text-ink">
-                      ~/workspace/project
+                      {INSTALL_TERMINAL_PATH}
                     </span>
                   </div>
                   {/* Spacer to balance the flex */}
-                  <div className="w-[42px]" />
+                  <div className="w-10.5" />
                 </div>
 
                 {/* Terminal Body */}

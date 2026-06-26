@@ -5,7 +5,7 @@
    No newsletter, no social icons, no "built with" copy.
 ───────────────────────────────────────────────────────────────── */
 
-import { NAV, FOOTER_LINKS } from "@/lib/constants";
+import { NAV, FOOTER_LINKS } from "@/content/landing";
 import { IoTerminalOutline } from "react-icons/io5";
 
 export default function Footer() {
