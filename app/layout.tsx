@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { FAQ_ITEMS } from "@/content/landing";
+import { Analytics } from "@vercel/analytics/next";
 
 const structuredData = [
   {
@@ -134,6 +135,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className="min-h-dvh flex flex-col">
         {children}
+        <Analytics />
       </body>
     </html>
   );
