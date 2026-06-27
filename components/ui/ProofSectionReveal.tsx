@@ -19,14 +19,22 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  hidden: {
+    opacity: 0,
+    y: 24,
+    filter: "blur(4px)",
+  },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 280, damping: 24 },
+    filter: "blur(0px)",
+    transition: {
+      type: "spring" as const,
+      stiffness: 280,
+      damping: 24,
+    },
   },
-};
+} satisfies import("framer-motion").Variants;
 
 export default function ProofSectionReveal({
   children,

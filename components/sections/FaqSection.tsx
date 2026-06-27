@@ -16,14 +16,22 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  hidden: {
+    opacity: 0,
+    y: 24,
+    filter: "blur(4px)",
+  },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 260, damping: 24 },
+    filter: "blur(0px)",
+    transition: {
+      type: "spring" as const,
+      stiffness: 280,
+      damping: 24,
+    },
   },
-};
+} satisfies import("framer-motion").Variants;
 
 export default function FaqSection() {
   return (
@@ -79,7 +87,7 @@ export default function FaqSection() {
               <motion.article
                 key={item.question}
                 variants={itemVariants}
-                className="relative group w-full [perspective:1400px]"
+                className="relative group w-full perspective-1400px"
               >
                 {/* 3D Transform Wrapper */}
                 <div className="relative w-full [transform-style:preserve-3d] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [transform:translateZ(0px)] group-hover:[transform:translateZ(16px)]">
