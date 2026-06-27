@@ -7,6 +7,7 @@ import NavBar from "@/components/ui/NavBar";
 import HeroSection from "@/components/sections/HeroSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ProofSection from "@/components/sections/ProofSection";
+import FaqSection from "@/components/sections/FaqSection";
 import InstallSection from "@/components/sections/InstallSection";
 import Footer from "@/components/ui/Footer";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
         <HeroSection />
         <HowItWorksSection />
         <ProofSection />
+        <FaqSection />
         <InstallSection />
       </main>
       <Footer />

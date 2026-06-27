@@ -3,6 +3,7 @@ export * from "./hero";
 export * from "./how-it-works";
 export * from "./install";
 export * from "./proof";
+export * from "./faq";
 export * from "./diff";
 export * from "./footer";
 export * from "./hero-flow";

@@ -28,10 +28,10 @@ export default function NavBar() {
             className="flex items-center gap-2 group outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
             aria-label="Archie home"
           >
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-ink border border-border group-hover:border-accent/50 transition-colors">
-              <Image src="/logo.png" alt="Archie logo" width={60} height={60} />
+            <div className="flex items-center justify-center w-5 h-5 group-hover:border-accent/50 transition-colors">
+              <Image src="/logo.svg" alt="Archie logo" width={60} height={60} />
             </div>
-            <span className="font-display font-medium text-lg text-ink tracking-tight select-none">
+            <span className="font-display font-medium text-lg text-diff-add-fg tracking-tight select-none">
               {NAV.wordmark}
             </span>
           </a>
